@@ -163,13 +163,13 @@
           <p style="margin-top:20px"><a class="phone" href="tel:+18149344204">814-934-4204</a></p>
           <p style="margin-top:6px">Hollidaysburg, PA</p>
         </div>
-        <!-- Replace YOUR_FORM_ID with a free Formspree form ID (formspree.io) -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="tel" name="phone" placeholder="Phone number" required>
-          <input type="email" name="email" placeholder="Email (optional)">
-          <textarea name="message" rows="4" placeholder="Describe your project" required></textarea>
+        <form id="estimate-form">
+          <input type="text" name="name" placeholder="Your name" maxlength="60" required>
+          <input type="tel" name="phone" placeholder="Phone number" maxlength="30" required>
+          <textarea name="message" rows="4" placeholder="Describe your project" maxlength="600" required></textarea>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
           <button class="btn" type="submit">Request estimate</button>
+          <p id="estimate-status" role="status" style="font-size:.95rem"></p>
         </form>
       </div>
     </div>
@@ -239,6 +239,21 @@ async function poll() {
     }
   } catch (e) {}
 }
+$('estimate-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, status = $('estimate-status'), btn = f.querySelector('button');
+  btn.disabled = true; status.textContent = 'Sending…';
+  try {
+    const r = await fetch(`${CHAT_API}/estimate`, { method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(f))) });
+    if (!r.ok) throw new Error();
+    f.reset(); status.textContent = 'Thanks! We received your request and will text or call you soon.';
+  } catch (err) {
+    status.textContent = 'Sorry, that didn\'t go through. Please call 814-934-4204.';
+  }
+  btn.disabled = false;
+});
+
 $('chat-form').addEventListener('submit', async e => {
   e.preventDefault();
   const text = $('chat-input').value.trim(); if (!text) return;

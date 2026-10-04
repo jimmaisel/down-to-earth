@@ -25,6 +25,7 @@ export default {
     if (req.method === 'OPTIONS') return json({}, 204, origin);
 
     if (url.pathname === '/send' && req.method === 'POST') return send(req, env, origin);
+    if (url.pathname === '/estimate' && req.method === 'POST') return estimate(req, env, origin);
     if (url.pathname === '/messages' && req.method === 'GET') return messages(url, env, origin);
     if (url.pathname === '/sms' && req.method === 'POST') return inbound(req, env);
     return json({ error: 'not found' }, 404, origin);
@@ -63,6 +64,26 @@ async function send(req, env, origin) {
   const sms = `[${conv.code}] ${name}: ${text}` + (first ? `\n(Reply starting with ${conv.code} to answer this customer)` : '');
   const ok = await twilioSend(env, env.OWNER_NUMBER, sms);
   return json({ ok, n }, ok ? 200 : 502, origin);
+}
+
+// Estimate form -> a single text to the owner (reply/call the customer from your own phone)
+async function estimate(req, env, origin) {
+  let b; try { b = await req.json(); } catch { return json({ error: 'bad json' }, 400, origin); }
+  if (b.website) return json({ ok: true }, 200, origin); // honeypot: bots fill this hidden field
+  const name = String(b.name || '').trim().slice(0, 60);
+  const phone = String(b.phone || '').trim().slice(0, 30);
+  const message = String(b.message || '').trim().slice(0, 600);
+  if (!name || !message || phone.replace(/\D/g, '').length < 10) return json({ error: 'bad request' }, 400, origin);
+
+  // rate limit: 5 requests per IP per hour
+  const ip = req.headers.get('CF-Connecting-IP') || 'unknown';
+  const key = `r:${ip}`;
+  const count = parseInt((await env.CHAT.get(key)) || '0', 10);
+  if (count >= 5) return json({ error: 'limit' }, 429, origin);
+  await env.CHAT.put(key, String(count + 1), { expirationTtl: 3600 });
+
+  const ok = await twilioSend(env, env.OWNER_NUMBER, `Estimate request\n${name}\n${phone}\n${message}`);
+  return json({ ok }, ok ? 200 : 502, origin);
 }
 
 async function messages(url, env, origin) {
