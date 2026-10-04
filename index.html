@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Down To Earth | Excavating, Demolition &amp; Hauling in Hollidaysburg, PA</title>
+<meta name="description" content="Licensed and insured excavating, demolition and hauling serving Hollidaysburg, PA and surrounding areas. Call 814-934-4204.">
+<style>
+  :root {
+    --navy: #1f3a5f;
+    --char: #1c1f26;
+    --char2: #262a33;
+    --rust: #c96a3a;
+    --sand: #f3efe8;
+    --ink: #20232a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--sand); line-height: 1.6; }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: Impact, "Arial Narrow Bold", "Franklin Gothic Medium", system-ui, sans-serif; letter-spacing: .03em; text-transform: uppercase; font-weight: 400; line-height: 1.1; }
+
+  header { position: sticky; top: 0; background: var(--char); color: #fff; z-index: 10; border-bottom: 3px solid var(--rust); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .brand { font-family: Impact, system-ui, sans-serif; font-size: 1.4rem; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
+  nav { display: flex; align-items: center; gap: 22px; }
+  nav a { text-decoration: none; font-size: .95rem; font-weight: 500; }
+  nav a:hover { color: var(--rust); }
+  .btn { display: inline-block; background: var(--rust); color: #fff !important; padding: 12px 26px; border-radius: 6px; text-decoration: none; font-weight: 700; border: 0; cursor: pointer; font-size: 1rem; font-family: inherit; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn.alt { background: transparent; border: 2px solid #fff; }
+
+  .hero { background: var(--char); color: #fff; padding: 60px 0 70px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+  .hero h1 span { color: var(--rust); }
+  .hero p { font-size: 1.15rem; margin: 18px 0 28px; opacity: .9; max-width: 44ch; }
+  .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero img { width: 100%; max-width: 380px; justify-self: center; border-radius: 18px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+
+  .strip { background: var(--navy); color: #fff; text-align: center; padding: 14px 20px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .9rem; }
+
+  section { padding: 76px 0; }
+  h2 { font-size: 2.2rem; color: var(--navy); margin-bottom: 12px; }
+  .lead { max-width: 62ch; font-size: 1.08rem; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 36px; }
+  .card { background: #fff; border-top: 5px solid var(--rust); border-radius: 8px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  .card .icon { font-size: 2.2rem; }
+  .card h3 { margin: 10px 0 8px; color: var(--char); font-size: 1.5rem; }
+  .card ul { margin: 12px 0 0 18px; font-size: .95rem; }
+
+  .why { background: var(--char2); color: #fff; }
+  .why h2 { color: var(--rust); }
+  .why ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 28px; }
+  .why li strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+  .why li { opacity: .92; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px; }
+  .contact-grid .phone { font-family: Impact, sans-serif; font-size: 2.4rem; color: var(--navy); text-decoration: none; letter-spacing: .04em; }
+  form { display: grid; gap: 12px; }
+  input, textarea { font: inherit; padding: 12px 14px; border: 1px solid #c9c2b4; border-radius: 6px; background: #fff; width: 100%; }
+  input:focus, textarea:focus { outline: 2px solid var(--rust); }
+
+  footer { background: var(--char); color: #aaa; text-align: center; padding: 28px 20px; font-size: .9rem; }
+
+  @media (max-width: 720px) {
+    .hero .wrap, .contact-grid { grid-template-columns: 1fr; }
+    nav a:not(.btn) { display: none; }
+    section { padding: 56px 0; }
+  }
+
+  /* ---------- Chat widget ---------- */
+  #chat-btn { position: fixed; right: 20px; bottom: 20px; z-index: 50; background: var(--rust); color: #fff; border: 0; border-radius: 999px; padding: 14px 22px; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 6px 20px rgba(0,0,0,.3); font-family: inherit; }
+  #chat-box { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 340px; max-width: calc(100vw - 24px); height: 460px; max-height: calc(100vh - 40px); background: #fff; border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,.35); display: none; flex-direction: column; overflow: hidden; }
+  #chat-box.open { display: flex; }
+  .chat-head { background: var(--char); color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--rust); }
+  .chat-head small { display: block; opacity: .7; font-size: .75rem; }
+  .chat-head button { background: none; border: 0; color: #fff; font-size: 1.4rem; cursor: pointer; }
+  #chat-log { flex: 1; overflow-y: auto; padding: 14px; background: #f6f3ed; display: flex; flex-direction: column; gap: 8px; }
+  .msg { max-width: 82%; padding: 9px 13px; border-radius: 14px; font-size: .95rem; white-space: pre-wrap; word-wrap: break-word; }
+  .msg.me { align-self: flex-end; background: var(--navy); color: #fff; border-bottom-right-radius: 3px; }
+  .msg.them { align-self: flex-start; background: #fff; border: 1px solid #ddd5c6; border-bottom-left-radius: 3px; }
+  .msg.sys { align-self: center; background: none; font-size: .8rem; color: #777; text-align: center; }
+  #chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #e3dccd; background: #fff; }
+  #chat-form input { flex: 1; }
+  #chat-form button { padding: 0 16px; }
+  #chat-name { display: none; padding: 10px; background: #fff; border-top: 1px solid #e3dccd; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Down To Earth</a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="tel:+18149344204">814-934-4204</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Excavating. Demolition. <span>Hauling.</span></h1>
+        <p>Licensed and insured, locally owned, serving Hollidaysburg, PA and surrounding areas. Big jobs, small jobs, done right.</p>
+        <div class="actions">
+          <a class="btn" href="tel:+18149344204">Call 814-934-4204</a>
+          <a class="btn alt" href="#" onclick="openChat();return false;">Text us on the site</a>
+        </div>
+      </div>
+      <img src="logo.jpg" alt="Down To Earth logo: Excavating, Demolition, Hauling. Serving Hollidaysburg, PA. Licensed and Insured.">
+    </div>
+  </div>
+  <div class="strip">Serving Hollidaysburg, PA · Est. 2025 · Licensed &amp; Insured</div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What we do</h2>
+      <p class="lead">Heavy equipment and a hard-working crew for your property. Call or message us for a free estimate.</p>
+      <div class="cards">
+        <div class="card"><div class="icon">🚜</div><h3>Excavating</h3><p>Site prep and earthmoving for any project.</p>
+          <ul><li>Foundations &amp; footers</li><li>Driveways &amp; grading</li><li>Trenching &amp; drainage</li><li>Land clearing</li></ul></div>
+        <div class="card"><div class="icon">🏚️</div><h3>Demolition</h3><p>Safe, clean tear-downs from start to finish.</p>
+          <ul><li>Sheds &amp; outbuildings</li><li>Garages &amp; structures</li><li>Concrete &amp; slabs</li><li>Cleanup included</li></ul></div>
+        <div class="card"><div class="icon">🚛</div><h3>Hauling</h3><p>Dump trailer service to get it gone.</p>
+          <ul><li>Debris &amp; demo waste</li><li>Stone, dirt &amp; gravel</li><li>Property cleanouts</li><li>Material delivery</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why">
+    <div class="wrap">
+      <h2>Why Down To Earth</h2>
+      <ul>
+        <li><strong>Licensed &amp; Insured</strong>Fully covered, so you're protected.</li>
+        <li><strong>Local</strong>Based in Hollidaysburg and serving our neighbors.</li>
+        <li><strong>Honest Pricing</strong>Straight answers and free estimates.</li>
+        <li><strong>Right Equipment</strong>Excavator, dump trailer and truck on every job.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Get a free estimate</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="lead">Tell us about your project. Call, use the chat button in the corner to text us, or send a message.</p>
+          <p style="margin-top:20px"><a class="phone" href="tel:+18149344204">814-934-4204</a></p>
+          <p style="margin-top:6px">Hollidaysburg, PA</p>
+        </div>
+        <!-- Replace YOUR_FORM_ID with a free Formspree form ID (formspree.io) -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="tel" name="phone" placeholder="Phone number" required>
+          <input type="email" name="email" placeholder="Email (optional)">
+          <textarea name="message" rows="4" placeholder="Describe your project" required></textarea>
+          <button class="btn" type="submit">Request estimate</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Down To Earth · Hollidaysburg, PA · 814-934-4204 · Licensed &amp; Insured</footer>
+
+<!-- Chat widget -->
+<button id="chat-btn" onclick="openChat()">💬 Text Us</button>
+<div id="chat-box" role="dialog" aria-label="Chat with Down To Earth">
+  <div class="chat-head">
+    <div>Down To Earth<small>Replies usually within a few hours</small></div>
+    <button onclick="closeChat()" aria-label="Close chat">×</button>
+  </div>
+  <div id="chat-log"></div>
+  <div id="chat-name"><input id="chat-name-input" placeholder="Your name (so we know who's texting)" maxlength="40"></div>
+  <form id="chat-form">
+    <input id="chat-input" placeholder="Type a message…" maxlength="500" autocomplete="off" required>
+    <button class="btn" type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---- Chat config: set this to your deployed Cloudflare Worker URL (no trailing slash) ---- */
+const CHAT_API = 'https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev';
+
+const $ = id => document.getElementById(id);
+const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } },
+                set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
+let sid = store.get('dte_sid');
+if (!sid) {
+  sid = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(16).padStart(2,'0')).join('');
+  store.set('dte_sid', sid);
+}
+let seen = 0, timer = null, greeted = false;
+
+function addMsg(text, cls) {
+  const d = document.createElement('div');
+  d.className = 'msg ' + cls; d.textContent = text;
+  $('chat-log').appendChild(d);
+  $('chat-log').scrollTop = 1e9;
+}
+function openChat() {
+  $('chat-box').classList.add('open'); $('chat-btn').style.display = 'none';
+  if (!greeted) {
+    greeted = true;
+    addMsg('Hi! Send us a message about your project and we\'ll text you back right here. For anything urgent, call 814-934-4204.', 'sys');
+    if (!store.get('dte_name')) $('chat-name').style.display = 'block';
+  }
+  poll(); timer = timer || setInterval(poll, 4000);
+  $('chat-input').focus();
+}
+function closeChat() {
+  $('chat-box').classList.remove('open'); $('chat-btn').style.display = '';
+  clearInterval(timer); timer = null;
+}
+async function poll() {
+  try {
+    const r = await fetch(`${CHAT_API}/messages?sid=${sid}&after=${seen}`);
+    if (!r.ok) return;
+    const data = await r.json();
+    for (const m of data.messages) {
+      if (m.n > seen) { seen = m.n; if (m.from === 'owner') addMsg(m.text, 'them'); else if (!m.shown) addMsg(m.text, 'me'); }
+    }
+  } catch (e) {}
+}
+$('chat-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const text = $('chat-input').value.trim(); if (!text) return;
+  let name = store.get('dte_name') || $('chat-name-input').value.trim();
+  if (!name) { $('chat-name-input').focus(); return; }
+  store.set('dte_name', name); $('chat-name').style.display = 'none';
+  $('chat-input').value = '';
+  addMsg(text, 'me');
+  try {
+    const r = await fetch(`${CHAT_API}/send`, { method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ sid, name, text }) });
+    const data = await r.json();
+    if (data.n) seen = Math.max(seen, data.n);   // our own message: don't echo it twice
+    if (!r.ok) addMsg('Message could not be sent. Please call 814-934-4204.', 'sys');
+  } catch (err) { addMsg('Message could not be sent. Please call 814-934-4204.', 'sys'); }
+});
+</script>
+</body>
+</html>
