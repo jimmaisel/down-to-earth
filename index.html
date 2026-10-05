@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Down To Earth | Excavating, Demolition &amp; Hauling in Hollidaysburg, PA</title>
-<meta name="description" content="Licensed and insured excavating, demolition and hauling serving Hollidaysburg, PA and surrounding areas. Call 814-934-4204.">
+<meta name="description" content="Licensed and insured excavating, demolition and hauling serving Hollidaysburg, PA and surrounding areas. Call 814-931-2513.">
 <style>
   :root {
     --navy: #1f3a5f;
@@ -99,7 +99,7 @@
       <a href="#about">About</a>
       <a href="#why">Why Us</a>
       <a href="#contact">Contact</a>
-      <a class="btn" href="tel:+18149344204">814-934-4204</a>
+      <a class="btn" href="tel:+18149312513">814-931-2513</a>
     </nav>
   </div>
 </header>
@@ -111,7 +111,7 @@
         <h1>Excavating. Demolition. <span>Hauling.</span></h1>
         <p>Licensed and insured, locally owned, serving Hollidaysburg, PA and surrounding areas. Big jobs, small jobs, done right.</p>
         <div class="actions">
-          <a class="btn" href="tel:+18149344204">Call 814-934-4204</a>
+          <a class="btn" href="tel:+18149312513">Call 814-931-2513</a>
           <a class="btn alt" href="#" onclick="openChat();return false;">Text us on the site</a>
         </div>
       </div>
@@ -161,7 +161,7 @@
       <div class="contact-grid">
         <div>
           <p class="lead">Tell us about your project. Call, use the chat button in the corner to text us, or send a message.</p>
-          <p style="margin-top:20px"><a class="phone" href="tel:+18149344204">814-934-4204</a></p>
+          <p style="margin-top:20px"><a class="phone" href="tel:+18149312513">814-931-2513</a></p>
           <p style="margin-top:6px">Hollidaysburg, PA</p>
         </div>
         <form id="estimate-form">
@@ -177,7 +177,7 @@
   </section>
 </main>
 
-<footer>© <span id="yr"></span> Down To Earth · Hollidaysburg, PA · 814-934-4204 · Licensed &amp; Insured</footer>
+<footer>© <span id="yr"></span> Down To Earth · Hollidaysburg, PA · 814-931-2513 · Licensed &amp; Insured</footer>
 
 <!-- Chat widget -->
 <button id="chat-btn" onclick="openChat()">💬 Text Us</button>
@@ -220,7 +220,7 @@ function openChat() {
   $('chat-box').classList.add('open'); $('chat-btn').style.display = 'none';
   if (!greeted) {
     greeted = true;
-    addMsg('Hi! Send us a message about your project and we\'ll text you back right here. For anything urgent, call 814-934-4204.', 'sys');
+    addMsg('Hi! Send us a message about your project and we\'ll text you back right here. For anything urgent, call 814-931-2513.', 'sys');
     if (!store.get('dte_name')) $('chat-name').style.display = 'block';
   }
   poll(); timer = timer || setInterval(poll, 4000);
@@ -250,7 +250,7 @@ $('estimate-form').addEventListener('submit', async e => {
     if (!r.ok) throw new Error();
     f.reset(); status.textContent = 'Thanks! We received your request and will text or call you soon.';
   } catch (err) {
-    status.textContent = 'Sorry, that didn\'t go through. Please call 814-934-4204.';
+    status.textContent = 'Sorry, that didn\'t go through. Please call 814-931-2513.';
   }
   btn.disabled = false;
 });
@@ -268,8 +268,8 @@ $('chat-form').addEventListener('submit', async e => {
       body: JSON.stringify({ sid, name, text }) });
     const data = await r.json();
     if (data.n) seen = Math.max(seen, data.n);   // our own message: don't echo it twice
-    if (!r.ok) addMsg('Message could not be sent. Please call 814-934-4204.', 'sys');
-  } catch (err) { addMsg('Message could not be sent. Please call 814-934-4204.', 'sys'); }
+    if (!r.ok) addMsg('Message could not be sent. Please call 814-931-2513.', 'sys');
+  } catch (err) { addMsg('Message could not be sent. Please call 814-931-2513.', 'sys'); }
 });
 </script>
 </body>

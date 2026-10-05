@@ -4,7 +4,7 @@ compatibility_date = "2026-01-01"
 
 [vars]
 TWILIO_NUMBER = "+1XXXXXXXXXX"   # your Twilio number
-OWNER_NUMBER  = "+18149344204"   # cell that receives chats and sends replies
+OWNER_NUMBER  = "+18149312513"   # cell that receives chats and sends replies
 ALLOWED_ORIGIN = "*"             # change to your site URL once live, e.g. https://downtoearth.pages.dev
 
 [[kv_namespaces]]
