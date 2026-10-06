@@ -47,7 +47,7 @@
 
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 36px; }
   .card { background: #fff; border-top: 5px solid var(--rust); border-radius: 8px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
-  .card .icon { font-size: 2.2rem; }
+  .card .badge { display: block; width: 100%; max-width: 240px; height: auto; margin: 0 auto 6px; }
   .card h3 { margin: 10px 0 8px; color: var(--char); font-size: 1.5rem; }
   .card ul { margin: 12px 0 0 18px; font-size: .95rem; }
 
@@ -125,11 +125,11 @@
       <h2>What we do</h2>
       <p class="lead">Heavy equipment and a hard-working crew for your property. Call or message us for a free estimate.</p>
       <div class="cards">
-        <div class="card"><div class="icon">🚜</div><h3>Excavating</h3><p>Site prep and earthmoving for any project.</p>
+        <div class="card"><img class="badge" src="img/excavating.jpg" width="520" height="522" alt="Excavating: blue excavator digging, with Chimney Rocks behind" loading="lazy"><h3>Excavating</h3><p>Site prep and earthmoving for any project.</p>
           <ul><li>Foundations &amp; footers</li><li>Driveways &amp; grading</li><li>Trenching &amp; drainage</li><li>Land clearing</li></ul></div>
-        <div class="card"><div class="icon">🏚️</div><h3>Demolition</h3><p>Safe, clean tear-downs from start to finish.</p>
+        <div class="card"><img class="badge" src="img/demolition.jpg" width="520" height="515" alt="Demolition: excavator tearing down a building" loading="lazy"><h3>Demolition</h3><p>Safe, clean tear-downs from start to finish.</p>
           <ul><li>Sheds &amp; outbuildings</li><li>Garages &amp; structures</li><li>Concrete &amp; slabs</li><li>Cleanup included</li></ul></div>
-        <div class="card"><div class="icon">🚛</div><h3>Hauling</h3><p>Dump trailer service to get it gone.</p>
+        <div class="card"><img class="badge" src="img/hauling.jpg" width="520" height="518" alt="Hauling: dump trailer unloading stone" loading="lazy"><h3>Hauling</h3><p>Dump trailer service to get it gone.</p>
           <ul><li>Debris &amp; demo waste</li><li>Stone, dirt &amp; gravel</li><li>Property cleanouts</li><li>Material delivery</li></ul></div>
       </div>
     </div>
